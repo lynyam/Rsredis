@@ -1,3 +1,7 @@
+*codecrafters*
+.gitattributes
+.gitignore
+README.md
 *.jar
 target/
 .idea/
