@@ -1,6 +1,8 @@
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class Main {
   public static void main(String[] args){
@@ -16,6 +18,8 @@ public class Main {
           serverSocket.setReuseAddress(true);
           // Wait for connection from client.
           clientSocket = serverSocket.accept();
+          PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
+          out.println(Arrays.toString("+PONG\r\n".getBytes()));
         } catch (IOException e) {
           System.out.println("IOException: " + e.getMessage());
         } finally {
